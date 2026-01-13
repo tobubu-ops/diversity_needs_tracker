@@ -1,0 +1,40 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36" version="29.3.0">
+  <diagram name="Class Diagram" id="X32n1upqEIUfy_AixGLH">
+    <mxGraphModel dx="1418" dy="906" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="u_X0B3LRoyPgm1hXJob_-1" parent="1" style="shape=umlClass;whiteSpace=wrap;html=1;" value="DiversityNeedRecord&#xa;&#xa;- employee_id: str&#xa;- full_name: str&#xa;- department: str&#xa;- division: str&#xa;- category: str&#xa;- priority: str&#xa;- status: str&#xa;- request_date: str&#xa;- review_date: str&#xa;- notes: str&#xa;&#xa;+ to_dict(): dict" vertex="1">
+          <mxGeometry height="320" width="260" x="820" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="u_X0B3LRoyPgm1hXJob_-2" parent="1" style="shape=umlClass;whiteSpace=wrap;html=1;" value="CsvRepository&#xa;&#xa;- HEADERS: list[str]&#xa;&#xa;+ load(file_path: str): list[DiversityNeedRecord]&#xa;+ save(file_path: str, records: list[DiversityNeedRecord]): None" vertex="1">
+          <mxGeometry height="200" width="300" x="440" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="u_X0B3LRoyPgm1hXJob_-3" parent="1" style="shape=umlClass;whiteSpace=wrap;html=1;" value="Validator&#xa;&#xa;+ validate_employee_id(value: str): (bool, str)&#xa;+ validate_required_text(value: str, field: str): (bool, str)&#xa;+ validate_choice(value: str, allowed: list[str]): (bool, str)&#xa;+ validate_date(value: str): (bool, str)&#xa;+ validate_review_after_request(req: str, rev: str): (bool, str)&#xa;+ is_unique_employee_id(id: str, existing: set[str]): (bool, str)" vertex="1">
+          <mxGeometry height="260" width="320" x="80" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="u_X0B3LRoyPgm1hXJob_-4" parent="1" style="shape=umlClass;whiteSpace=wrap;html=1;" value="MainWindow&#xa;&#xa;- records: list[DiversityNeedRecord]&#xa;- file_path: str&#xa;&#xa;+ add_record(): None&#xa;+ edit_selected(): None&#xa;+ update_record(index: int, record: DiversityNeedRecord): None&#xa;+ save_records(): None" vertex="1">
+          <mxGeometry height="260" width="320" x="440" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="u_X0B3LRoyPgm1hXJob_-5" parent="1" style="shape=umlClass;whiteSpace=wrap;html=1;" value="RecordForm&#xa;&#xa;- mode: str&#xa;- record_index: int | None&#xa;&#xa;+ save(): None&#xa;+ prefill_if_edit(): None" vertex="1">
+          <mxGeometry height="200" width="300" x="80" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="u_X0B3LRoyPgm1hXJob_-6" edge="1" parent="1" source="u_X0B3LRoyPgm1hXJob_-4" style="endArrow=block;html=1;" target="u_X0B3LRoyPgm1hXJob_-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="u_X0B3LRoyPgm1hXJob_-7" edge="1" parent="1" source="u_X0B3LRoyPgm1hXJob_-4" style="dashed=1;endArrow=block;html=1;" target="u_X0B3LRoyPgm1hXJob_-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="u_X0B3LRoyPgm1hXJob_-8" edge="1" parent="1" source="u_X0B3LRoyPgm1hXJob_-5" style="dashed=1;endArrow=block;html=1;" target="u_X0B3LRoyPgm1hXJob_-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="u_X0B3LRoyPgm1hXJob_-9" edge="1" parent="1" source="u_X0B3LRoyPgm1hXJob_-5" style="endArrow=block;html=1;" target="u_X0B3LRoyPgm1hXJob_-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="u_X0B3LRoyPgm1hXJob_-10" edge="1" parent="1" source="u_X0B3LRoyPgm1hXJob_-2" style="dashed=1;endArrow=block;html=1;" target="u_X0B3LRoyPgm1hXJob_-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
